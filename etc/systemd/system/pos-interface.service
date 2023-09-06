@@ -1,0 +1,16 @@
+[Unit]
+Description=POS_Interface
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ipour/Documents/python/pos-interface/
+ExecStart=/home/ipour/Documents/python/pos-interface/main.py --pid /var/run/pos-interface.pid
+Restart=always
+User=ipour
+Group=ipour
+LimitNOFILE=10240
+LimitFSIZE=infinity
+
+[Install]
+WantedBy=multi-user.target
